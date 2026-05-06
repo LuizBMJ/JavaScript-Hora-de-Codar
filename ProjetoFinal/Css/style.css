@@ -1,0 +1,233 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+main {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    letter-spacing: -0.5px;
+}
+
+#container-form {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+#task-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+#task-input {
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#task-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#task-input:focus {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+#task-form button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #764ba2;
+    background: #fff;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#task-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+}
+
+#task-form button:active {
+    transform: translateY(0);
+}
+
+#task-h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#task-list li {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#task-list li .task-text {
+    flex: 1;
+    word-break: break-word;
+}
+
+#task-list li .task-buttons {
+    display: flex;
+    gap: 8px;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+#task-list li .task-btn-action {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0;
+}
+
+#task-list li .task-btn-action svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#task-list li .complete-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+#task-list li .delete-btn:hover {
+    background: rgba(255, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+#task-list li:has(.delete-btn:hover) {
+    background: rgba(255, 0, 0, 0.3);
+    animation: shake 0.5s ease-in-out;
+}
+
+#task-list li.completed {
+    background: rgba(34, 197, 94, 0.4);
+    border-color: rgba(34, 197, 94, 0.5);
+}
+
+#task-list li.completed .task-text {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+#task-list li:hover {
+    transform: translateX(4px);
+}
+
+#task-list li:has(.delete-btn:hover):hover {
+    animation: shake 0.5s ease-in-out;
+    transform: translateX(0);
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 24px 16px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #container-form {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    #task-form {
+        flex-direction: column;
+    }
+
+    #task-form button {
+        width: 100%;
+        height: 48px;
+    }
+}
